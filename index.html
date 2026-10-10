@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>examen con calculadora</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand">Calculadora</h1>
+    <nav class="tabs" role="tablist" aria-label="Herramientas">
+      <button class="tab active" role="tab" aria-selected="true" aria-controls="edad" data-target="edad">Edad</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="termico" data-target="termico">Térmico</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tareas" data-target="tareas">Tareas</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="edad" class="panel active" role="tabpanel">
+      <h2>tiempo transcurrido</h2>
+      <p class="subtitle">calcula los años y meses transcurridos desde tu nacimiento</p>
+
+      <form id="age-form" class="card" novalidate>
+        <fieldset>
+          <legend>fecha de nacimiento</legend>
+          <div class="date-picker">
+            <label>Dia
+              <select id="age-day" required></select>
+            </label>
+            <label>Mes
+              <select id="age-month" required></select>
+            </label>
+            <label>Año
+              <select id="age-year" required></select>
+            </label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn">Calcular</button>
+        <p id="age-result" class="result" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="termico" class="panel" role="tabpanel" hidden>
+      <h2>convertidor de temperatura</h2>
+      <p class="subtitle">ingresa la temperatura selecciona las unidades y convierte</p>
+
+      <form id="temp-form" class="card" novalidate>
+        <div class="temp-row">
+          <input type="number" id="temp-value" placeholder="0.00" step="any" aria-label="Valor">
+          <select id="temp-from" aria-label="Unidad de origen">
+            <option value="">unidad origen</option>
+            <option value="C">celsius</option>
+            <option value="F">faranheit</option>
+            <option value="K">kelvin</option>
+          </select>
+          <select id="temp-to" aria-label="Unidad de destino">
+            <option value="">unidad destino</option>
+            <option value="C">celsius</option>
+            <option value="F">faranheit</option>
+            <option value="K">kelvin</option>
+          </select>
+          <button type="submit" id="temp-btn" class="btn" disabled>Convertir</button>
+        </div>
+        <p id="temp-result" class="result" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="tareas" class="panel" role="tabpanel" hidden>
+      <h2>gestor de tareas</h2>
+      <p class="subtitle">escribe una tarea y presiona Enter para agregarla</p>
+
+      <div class="card">
+        <form id="task-form" class="task-form" novalidate>
+          <input type="text" id="task-input" placeholder="Empieza a escribir y presiona Enter" aria-label="Nueva tarea" autocomplete="off">
+          <button type="submit" class="btn btn-icon" aria-label="Agregar tarea">↵</button>
+        </form>
+        <ul id="task-list" class="task-list"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
